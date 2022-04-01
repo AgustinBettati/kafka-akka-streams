@@ -10,7 +10,7 @@ import scala.concurrent.Future
 
 object KafkaConsumer extends App {
 
-  private val topic = "quickstart"
+  private val topic = "sensor-data"
 
   implicit val system: ActorSystem = ActorSystem()
   val config = system.settings.config.getConfig("akka.kafka.consumer")
@@ -28,5 +28,4 @@ object KafkaConsumer extends App {
 
   private val graph: RunnableGraph[Consumer.Control] = streamSrc.toMat(printingSink)(Keep.left)
   private val control: Consumer.Control = graph.run()
-  Thread.sleep(20000)
 }
