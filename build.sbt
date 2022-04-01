@@ -17,7 +17,6 @@ lazy val root = (project in file("."))
       // for JSON in Scala
       "io.spray" %% "spray-json" % "1.3.5",
       // Logging
-      "com.typesafe.akka" %% "akka-slf4j" % AkkaVersion,
-      "ch.qos.logback" % "logback-classic" % "1.2.3"
+      "com.typesafe.akka" %% "akka-slf4j" % AkkaVersion
     )
   )
