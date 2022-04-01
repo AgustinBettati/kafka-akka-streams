@@ -10,9 +10,9 @@ lazy val root = (project in file("."))
     name := "akka-streams-kafka",
     libraryDependencies := List(
       // #deps
+      // brings akka-actor and akka-stream transitively with version 2.6.9
       "com.typesafe.akka" %% "akka-stream-kafka" % AlpakkaKafkaVersion,
-      "com.typesafe.akka" %% "akka-stream-typed" % AkkaVersion,
-      "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
+      "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
       "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
       // for JSON in Scala
       "io.spray" %% "spray-json" % "1.3.5",
