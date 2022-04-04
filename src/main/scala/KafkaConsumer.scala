@@ -16,7 +16,8 @@ object KafkaConsumer extends App {
   val config = system.settings.config.getConfig("akka.kafka.consumer")
   val consumerSettings =
     ConsumerSettings(config, new StringDeserializer, new StringDeserializer)
-      .withProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+      .withProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest") // will consume from the start of the topic if no offset is present
+      .withProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true") // offset of consumer group will be saved in kafka broker
       .withGroupId("consumer-group-id")
 
   private val streamSrc: Source[ConsumerRecord[String, String], Consumer.Control] =
